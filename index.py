@@ -3,29 +3,39 @@ import random
 #create a Rock Paper Scissors program.
 
 #General
-choices = ['rock', 'paper', 'scissors']
+choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
 
 combos = {
-    'win' : {
-        'rock': 'scissors',
-        'paper': 'rock',
-        'scissors': 'paper',
+    'Won' : {
+        'Rock': ['Scissors', 'Lizard'],
+        'Paper': ['Rock', 'Spock'],
+        'Scissors': ['Paper', 'Lizard'],
+        'Lizard': ['Spock', 'Paper'],
+        'Spock': ['Scissors', 'Rock']
     },
-    'lose' : {
-        'rock': 'paper',
-        'paper': 'scissors',
-        'scissors': 'rock',
+    'Lost' : {
+        'Rock': ['Paper', 'Spock'],
+        'Paper': ['Scissors', 'Lizard'],
+        'Scissors': ['Rock', 'Spock'],
+        'Lizard': ['Scissors', 'Rock'],
+        'Spock': ['Lizard', 'Paper']
     },
-    'draw' : {
-        'rock': 'rock',
-        'paper': 'paper',
-        'scissors': 'scissors',
+    'Draw' : {
+        'Rock': ['Rock', 'Rock'],
+        'Paper': ['Paper', 'Paper'],
+        'Scissors': ['Scissors', 'Scissors'],
+        'Lizard' : ['Lizard', 'Lizard'],
+        'Spock': ['Spock', 'Spock']
     }
 }
 
 #FOR COMPUTER
 #Potential solution: create a random number generator.
-computer_choice = random.randint(0,2)
+computer_choice_index = random.randint(0,4)
+computer_choice = choices[computer_choice_index]
+print(computer_choice)
+   
+
 
 
 #Each number will be assigned to a value of either Rock, Scissors, or Paper
@@ -34,23 +44,23 @@ computer_choice = random.randint(0,2)
 #FOR USER
 #Our job will be to choose between three choices. 
 
-user_choice = input("What is your choice? (rock / paper / scissors)? ")
-user_choice.lower().strip()
+user_choice = input("What is your choice? (Rock / Paper / Scissors/ Lizard/ Spock)? ")
+user_choice = user_choice.title().strip()
 
-computer_choice = 'rock'
-user_choice = 'rock'
+print(user_choice)
 
-print(computer_choice, user_choice)
+computer_result = ""
 
 for key1, value1 in combos.items():
     for key2, value2 in value1.items():
-        if computer_choice == key2 and user_choice == value2:
-            print(f"\n{key2}, {value2} computer left")
+        if computer_choice == key2 and (user_choice == value2[0] or user_choice == value2[1]):
+            #print(f"\n{key2}, {value2[0]} {value2[1]} computer left")
             computer_result = key1
             break
 
-print(computer_result)    
+print(f"computer {computer_result}")    
 
 
         
+
 
