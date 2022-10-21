@@ -29,38 +29,46 @@ combos = {
     }
 }
 
-#FOR COMPUTER
-#Potential solution: create a random number generator.
-computer_choice_index = random.randint(0,4)
-computer_choice = choices[computer_choice_index]
-print(computer_choice)
+
+while True:
+    #FOR COMPUTER
+    #Potential solution: create a random number generator.
+    computer_choice_index = random.randint(0,4)
+    computer_choice = choices[computer_choice_index]
+    print(computer_choice)
+    
+
+
+
+    #Each number will be assigned to a value of either Rock, Scissors, or Paper
+    # The computer will generate their answer at the same time as we give our answer
+
+    #FOR USER
+    #Our job will be to choose between three choices. 
+
+    user_choice = input("What is your choice? (Rock / Paper / Scissors/ Lizard/ Spock)? or quit ")
+    user_choice = user_choice.title().strip()
+    
+    
+    print(f"user_choice: {user_choice}")
    
+   
+    if user_choice == "Quit":
+        break
 
 
+  
 
-#Each number will be assigned to a value of either Rock, Scissors, or Paper
-# The computer will generate their answer at the same time as we give our answer
+    computer_result = ""
 
-#FOR USER
-#Our job will be to choose between three choices. 
+    for key1, value1 in combos.items():
+        for key2, value2 in value1.items():
+            if computer_choice == key2 and (user_choice == value2[0] or user_choice == value2[1]):
+                #print(f"\n{key2}, {value2[0]} {value2[1]} computer left")
+                computer_result = key1
+                break
 
-user_choice = input("What is your choice? (Rock / Paper / Scissors/ Lizard/ Spock)? ")
-user_choice = user_choice.title().strip()
-
-print(user_choice)
-
-computer_result = ""
-
-for key1, value1 in combos.items():
-    for key2, value2 in value1.items():
-        if computer_choice == key2 and (user_choice == value2[0] or user_choice == value2[1]):
-            #print(f"\n{key2}, {value2[0]} {value2[1]} computer left")
-            computer_result = key1
-            break
-
-print(f"computer {computer_result}")    
+    print(f"computer {computer_result}")    
 
 
         
-
-
