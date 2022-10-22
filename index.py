@@ -28,8 +28,16 @@ combos = {
         'Spock': ['Spock', 'Spock']
     }
 }
-
+count = -1
 while True:
+    count += 1
+    print("Games played:" + str(count))
+    if count % 3 == 0 and count != 0:
+        keep_playing = input("You played 3 games, are you still having fun? (y/n)")
+        keep_playing = keep_playing.lower().strip()
+        if keep_playing == "n":
+            print("Thank you for playing our game!")
+            break
     #FOR COMPUTER
     #Potential solution: create a random number generator.
     computer_choice_index = random.randint(0,4)
@@ -41,16 +49,24 @@ while True:
 #FOR USER
 #Our job will be to choose between three choices. 
 
-    print("This is the game you will be playing today")
-    print("https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock")
+    if count == 0:
+        print("This is the game you will be playing today")
+        print("https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock")
 
     user_choice = input("What is your choice? (Rock / Paper / Scissors / Lizard / Spock)? or quit ")
     user_choice = user_choice.title().strip()
-    
+       
     if user_choice == "Quit": 
         print("Thank you for playing! Try again next time")
         break
+    
+    if user_choice not in choices:
+        print("Not a valid choice, please try again")
+        continue
+    
 
+
+    
     user_result = ""
 
     for key1, value1 in combos.items():
