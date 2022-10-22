@@ -29,16 +29,11 @@ combos = {
     }
 }
 
-
 while True:
     #FOR COMPUTER
     #Potential solution: create a random number generator.
     computer_choice_index = random.randint(0,4)
     computer_choice = choices[computer_choice_index]
-    print(computer_choice)
-    
-
-
 
     #Each number will be assigned to a value of either Rock, Scissors, or Paper
     # The computer will generate their answer at the same time as we give our answer
@@ -46,29 +41,34 @@ while True:
     #FOR USER
     #Our job will be to choose between three choices. 
 
-    user_choice = input("What is your choice? (Rock / Paper / Scissors/ Lizard/ Spock)? or quit ")
+    print("This is the game you will be playing today")
+    print("https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock")
+
+    user_choice = input("What is your choice? (Rock / Paper / Scissors / Lizard / Spock)? or quit ")
     user_choice = user_choice.title().strip()
     
-    
-    print(f"user_choice: {user_choice}")
-   
-   
-    if user_choice == "Quit":
+    if user_choice == "Quit": 
+        print("Thank you for playing! Try again next time")
         break
 
-
-  
-
-    computer_result = ""
+    user_result = ""
 
     for key1, value1 in combos.items():
         for key2, value2 in value1.items():
-            if computer_choice == key2 and (user_choice == value2[0] or user_choice == value2[1]):
+            if user_choice == key2 and (computer_choice == value2[0] or computer_choice == value2[1]):
                 #print(f"\n{key2}, {value2[0]} {value2[1]} computer left")
-                computer_result = key1
+                user_result = key1
                 break
 
-    print(f"computer {computer_result}")    
+    if user_result == "Lost":
+        print("Sorry, you lost! Try harder next time.")    
+   
+    if user_result == "Won":
+        print("Congratulations, you're a winner!")    
 
-
+    if user_result == "Draw":
+        print("Whoa, it's a draw. That was a close one.")    
+ 
+    print(f"Your choice: {user_choice}")
+    print(f"Computer's choice: {computer_choice}")
         
