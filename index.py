@@ -1,6 +1,6 @@
 import random
 
-#create a Rock Paper Scissors program.
+#create a Rock Paper Scissors program. No Biggie
 
 #General
 choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
@@ -31,12 +31,12 @@ combos = {
 count = -1
 while True:
     count += 1
-    print("Games played:" + str(count))
+    print("---------------------------------Game " + str(count) + "------------------------------------")
     if count % 3 == 0 and count != 0:
-        keep_playing = input("You played 3 games, are you still having fun? (y/n)")
+        keep_playing = input("Another great round of... 'Rock Papers Scissors Lizard Spock'. Care to play again? (y/n)")
         keep_playing = keep_playing.lower().strip()
         if keep_playing == "n":
-            print("Thank you for playing our game!")
+            print("Thank you for playing our game *bow*")
             break
     #FOR COMPUTER
     #Potential solution: create a random number generator.
@@ -50,44 +50,61 @@ while True:
 #Our job will be to choose between three choices. 
 
     if count == 0:
-        print("This is the game you will be playing today")
+        print("WELCOME TO... *DUN  *DUN  *DUN... 'ROCK, PAPER, SCISSORS, LIZARD, SPOCK!!'")
+        print("Programmed by Steve McTeague, Chris Lee, & Cassandra Jeanelle Beatie")
+        print("Here's a link to the origin of this game, along with the rules.")
+        print()
         print("https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock")
+        print()
+        print("Now... let's see if you can beat 'Sheldon' in a best of 3")
+        print("-----------------------------------------------------------")
 
-    user_choice = input("What is your choice? (Rock / Paper / Scissors / Lizard / Spock)? or quit ")
+    user_choice = input("You must choose... wisely... ( Rock / Paper / Scissors / Lizard / Spock ). 'quit' to exit game: ")
+    
     user_choice = user_choice.title().strip()
        
     if user_choice == "Quit": 
-        print("Thank you for playing! Try again next time")
+        print("Thank you for playing our game *bow*")
         break
     
     if user_choice not in choices:
-        print("Not a valid choice, please try again")
+        print("Not a valid choice, watch for typos.")
         continue
     
 
 
     
     user_result = ""
-
+    
     for key1, value1 in combos.items():
         for key2, value2 in value1.items():
             if user_choice == key2 and (computer_choice == value2[0] or computer_choice == value2[1]):
-                #print(f"\n{key2}, {value2[0]} {value2[1]} computer left")
+                #print(f"\n{key2}, {value2[0]} {value2[1]} computer left") This was Steve's Idea
+                print()
+                print("Player:", user_choice, "| Computer:", computer_choice)
+                print
                 user_result = key1
                 break
-
+    
     if user_result == "Lost":
-        print("Sorry, you lost! Try harder next time.")    
+        print()
+        print("You have chosen... foolishly.")
+            
    
     if user_result == "Won":
-        print("Congratulations, you're a winner!")    
+        print()
+        print("Ooh darn. How did I not see that? Well done.")    
 
     if user_result == "Draw":
-        print("Whoa, it's a draw. That was a close one.")    
+        print()
+        print("It's a draw. That was a close one.")    
  
+<<<<<<< HEAD
     print(f"Your choice: {user_choice}")
     print(f"Computer's choice: {computer_choice}")
         
+=======
+>>>>>>> 8d9580c6ee6f76b056fce5a82891316f96e5ac7a
 
 
         
