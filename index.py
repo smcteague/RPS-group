@@ -99,12 +99,6 @@ while True:
         print()
         print("It's a draw. That was a close one.")    
  
-<<<<<<< HEAD
-    print(f"Your choice: {user_choice}")
-    print(f"Computer's choice: {computer_choice}")
-        
-=======
->>>>>>> 8d9580c6ee6f76b056fce5a82891316f96e5ac7a
 
 
         
